@@ -16,7 +16,7 @@ export function HomePage({ cartItems, loadCart }) {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const urlPath = search ? `${API_URL}/api/products?search=${search}` : '/api/products';
+            const urlPath = search ? `${API_URL}/api/products?search=${search}` : `${API_URL}/api/products`;
             const response = await axios.get(urlPath);
             setProducts(response.data);
         };
