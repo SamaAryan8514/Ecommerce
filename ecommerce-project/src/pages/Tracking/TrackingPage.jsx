@@ -8,13 +8,14 @@ import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 
 export function TrackingPage({ cartItems }) {
+    const API_URL = import.meta.env.VITE_API_URL;
     const location = useLocation();
     const { orderId, productId } = useParams();
     const [order, setOrder] = useState(null);
 
     useEffect(() => {
         const fetchTrackingData = async () => {
-            const response = await axios.get(`/api/orders/${orderId}?expand=products`);
+            const response = await axios.get(`${API_URL}/api/orders/${orderId}?expand=products`);
             setOrder(response.data);
         };
 
