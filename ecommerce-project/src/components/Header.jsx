@@ -48,9 +48,9 @@ export function Header({ cartItems }) {
                 <div className="left-section">
                     <Link to="/home" className="header-link">
                         <img className="logo"
-                            src="../public/images/shopZY-logo.png" onClick={clearStatus} />
+                            src="/images/shopZY-logo.png" onClick={clearStatus} />
                         <img className="mobile-logo"
-                            src="../public/images/shopZY-logo.png" onClick={clearStatus} />
+                            src="/images/shopZY-logo.png" onClick={clearStatus} />
                     </Link>
                 </div>
 
