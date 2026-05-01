@@ -32,8 +32,8 @@ export function CheckoutPage({ cartItems, loadCart }) {
                 <div className="header-content">
                     <div className="checkout-header-left-section">
                         <a href="/home">
-                            <img className="logo" src="../../public/images/shopzy-logo.png" />
-                            <img className="mobile-logo" src="images/mobile-logo.png" />
+                            <img className="logo" src="/images/shopzy-logo.png" />
+                            <img className="mobile-logo" src="/images/mobile-logo.png" />
                         </a>
                     </div>
 
