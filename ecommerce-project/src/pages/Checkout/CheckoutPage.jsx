@@ -8,15 +8,16 @@ import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 
 export function CheckoutPage({ cartItems, loadCart }) {
+    const API_URL = import.meta.env.VITE_API_URL;
     const location = useLocation();
     const [deliveryOptions, setDeliveryOptions] = useState([]);
     const [paymentSummary, setPaymentSummary] = useState(null);
     useEffect(() => {
         const fetchData = async () => {
-            let response = await axios.get('/api/delivery-options?expand=estimatedDeliveryTime');
+            let response = await axios.get('${API_URL}/api/delivery-options?expand=estimatedDeliveryTime');
             setDeliveryOptions(response.data);
 
-            response = await axios.get('/api/payment-summary');
+            response = await axios.get('${API_URL}/api/payment-summary');
             setPaymentSummary(response.data);
         };
         fetchData();
