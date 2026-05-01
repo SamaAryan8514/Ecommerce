@@ -12,10 +12,11 @@ import './App.css'
 
 
 function App() {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [cartItems, setCartItems] = useState([]);
 
   const loadCart = async () => {
-    const response = await axios.get('/api/cart-items?expand=product');
+    const response = await axios.get('${API_URL}/api/cart-items?expand=product');
     setCartItems(response.data);
   };
 
