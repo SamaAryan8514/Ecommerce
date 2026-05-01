@@ -2,11 +2,12 @@ import axios from "axios";
 import { useState } from "react";
 import { formatMoney } from "../../utils/Money.js";
 export function Product({ product, loadCart }) {
+    const API_URL = import.meta.env.VITE_API_URL;
     const [quantity, setquantity] = useState(1);
     const [showAddedMessage, setShowAddedMessage] = useState(false);
 
     const addToCart = async () => {
-        await axios.post('/api/cart-items', {
+        await axios.post('${API_URL}/api/cart-items', {
             productId: product.id,
             quantity
         });
