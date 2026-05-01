@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet-async';
 import { useLocation, useSearchParams } from 'react-router-dom';
 
 export function HomePage({ cartItems, loadCart }) {
+    const API_URL = import.meta.env.VITE_API_URL;
     const location = useLocation();
     const [products, setProducts] = useState([]);
     const [searchParams] = useSearchParams();
@@ -15,7 +16,7 @@ export function HomePage({ cartItems, loadCart }) {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const urlPath = search ? `/api/products?search=${search}` : '/api/products';
+            const urlPath = search ? `${API_URL}/api/products?search=${search}` : '/api/products';
             const response = await axios.get(urlPath);
             setProducts(response.data);
         };
