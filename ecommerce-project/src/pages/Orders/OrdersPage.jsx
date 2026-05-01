@@ -8,12 +8,13 @@ import './OrdersPage.css';
 import { OrdersGrid } from './OrdersGrid';
 
 export function OrdersPage({ cartItems, loadCart }) {
+    const API_URL = import.meta.env.VITE_API_URL;
     const location = useLocation();
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
         const fetchOrders = async () => {
-            const response = await axios.get('/api/orders?expand=products');
+            const response = await axios.get('${API_URL}/api/orders?expand=products');
             setOrders(response.data);
         };
         fetchOrders();
