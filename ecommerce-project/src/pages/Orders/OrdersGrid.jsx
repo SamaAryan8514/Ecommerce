@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import { formatMoney } from "../../utils/Money.js";
 import axios from "axios";
 export function OrdersGrid({ orders, loadCart }) {
+    const API_URL = import.meta.env.VITE_API_URL;
     return (
         <div className="orders-grid">
             {orders.map((order) => {
@@ -30,7 +31,7 @@ export function OrdersGrid({ orders, loadCart }) {
                         <div className="order-details-grid">
                             {order.products.map((orderProduct) => {
                                 const addToCart = async () => {
-                                    await axios.post('/api/cart-items', {
+                                    await axios.post('${API_URL}/api/cart-items', {
                                         productId: orderProduct.product.id,
                                         quantity: 1
                                     });
