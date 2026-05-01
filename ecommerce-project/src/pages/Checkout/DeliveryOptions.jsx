@@ -2,6 +2,7 @@ import axios from "axios";
 import { formatMoney } from "../../utils/Money";
 import dayjs from "dayjs";
 export function DeliveryOptions({ deliveryOptions, cartItem, loadCart }) {
+    const API_URL = import.meta.env.VITE_API_URL;
     return (
         <div className="delivery-options">
             <div className="delivery-options-title">
@@ -13,7 +14,7 @@ export function DeliveryOptions({ deliveryOptions, cartItem, loadCart }) {
                     priceString = `${formatMoney(deliveryOption.priceCents)} - Shipping`;
                 }
                 const updateDeliveryOption = async () => {
-                    await axios.put(`/api/cart-items/${cartItem.productId}`, {
+                    await axios.put(`${API_URL}/api/cart-items/${cartItem.productId}`, {
                         deliveryOptionId: deliveryOption.id
                     });
                     await loadCart();
